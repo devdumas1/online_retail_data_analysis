@@ -30,6 +30,15 @@ the cleaning rules and caches the result in `data/processed/`:
 
 Delete `data/processed/` (or call `load_clean(use_cache=False)`) to rebuild.
 
+## Browsing with SQL
+```bash
+python -m src.export_sqlite
+```
+Writes `data/processed/retail.db` (~260 MB), a SQLite database with tables `raw` (every row
+of the Excel file, before cleaning), `purchases` and `cancellations`, indexed on
+`customer_id` and `invoice_date`. Open it in DB Browser for SQLite or any SQLite client.
+Dates are ISO text, so `ORDER BY invoice_date` sorts correctly.
+
 ## Columns
 `invoice`, `stock_code`, `description`, `quantity`, `invoice_date`, `price`,
 `customer_id`, `country`, `amount`
