@@ -1,0 +1,19 @@
+# Data (download with: python -m src.download)
+data/raw/
+data/processed/
+*.xlsx
+*.zip
+*.parquet
+*.csv.gz
+
+# Secrets
+.env
+kaggle.json
+
+# Python / Jupyter
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ipynb_checkpoints/
+.DS_Store
