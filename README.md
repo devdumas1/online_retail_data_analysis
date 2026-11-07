@@ -8,8 +8,15 @@ Predicting which customers of a UK online gift retailer stop buying, using the
 2. Which decision threshold maximizes expected profit, given realistic costs of acting on a prediction?
 3. What does this evidence show, and what does it *not* show (prediction vs. causation)?
 
-**Status:** data cleaning and churn labels done (notebook 01); customer measures built
-(notebook 03). Benchmarks, models and the profit analysis are next. Headline results will go here.
+**Status:** minimum viable version complete (notebooks 01-05, write-up in `reports/report.md`).
+
+**Headline results** (test months July-September 2011)
+- Custom behavior measures add only a small, unconfirmed gain over recency, order count and spend
+  (PR-AUC 0.794 vs 0.787; 95% CI of the difference -0.002 to +0.016).
+- Targeting "please come back" offers by expected value (churn chance x success rate x margin x
+  spend > offer cost) was the most profitable policy in all 12 cost scenarios tested: +GBP 12,800
+  vs contacting everybody in the main case.
+- Profit levels rest on an assumed 20% offer success rate; only a randomized test can measure it.
 
 ## Setup
 ```bash
@@ -27,9 +34,11 @@ windows close before the first test cutoff.
 
 ## Layout
 ```
-src/           download, cleaning (data.py), labels (labels.py), measures (features.py)
+src/           download, cleaning (data.py), labels (labels.py), measures (features.py),
+               models, metrics and profit rules (evaluation.py)
 tests/         unit tests
-notebooks/     01_clean_and_define_churn.ipynb, ...
-reports/       figures/ and the write-up
+notebooks/     01 clean and define churn, 02 steps 1-2 inline, 03 measures,
+               04 benchmarks/models/evaluation, 05 profit analysis
+reports/       report.md (the write-up) and figures/
 data/          gitignored; see data/README.md
 ```
