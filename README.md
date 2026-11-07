@@ -8,8 +8,8 @@ Predicting which customers of a UK online gift retailer stop buying, using the
 2. Which decision threshold maximizes expected profit, given realistic costs of acting on a prediction?
 3. What does this evidence show, and what does it *not* show (prediction vs. causation)?
 
-**Status:** data cleaning and churn labels done (notebook 01). Features, models and the
-profit analysis are next. Headline results will go here.
+**Status:** data cleaning and churn labels done (notebook 01); customer measures built
+(notebook 03). Benchmarks, models and the profit analysis are next. Headline results will go here.
 
 ## Setup
 ```bash
@@ -27,7 +27,7 @@ windows close before the first test cutoff.
 
 ## Layout
 ```
-src/           download, cleaning (data.py), labels (labels.py)
+src/           download, cleaning (data.py), labels (labels.py), measures (features.py)
 tests/         unit tests
 notebooks/     01_clean_and_define_churn.ipynb, ...
 reports/       figures/ and the write-up
