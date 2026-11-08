@@ -1,14 +1,3 @@
-"""Export the data to a SQLite database for browsing with SQL tools (e.g. DB Browser for SQLite).
-
-    python -m src.export_sqlite
-
-Creates data/processed/retail.db (gitignored) with three tables:
-- raw            every row of the Excel file, before cleaning
-- purchases      cleaned purchase lines (see src/data.py)
-- cancellations  cleaned cancellation lines
-Dates are stored as ISO text ("2010-12-01 08:26:00"), which sorts correctly in SQL.
-"""
-
 from __future__ import annotations
 
 import sqlite3

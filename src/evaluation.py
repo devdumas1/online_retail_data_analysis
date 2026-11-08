@@ -1,17 +1,3 @@
-"""Benchmarks, models, evaluation metrics and profit rules (steps 4-7).
-
-Models are scikit-learn pipelines trained on earlier cutoffs and scored on later ones:
-- logistic regression (median imputation + missing flags, standardized inputs)
-- gradient boosting (HistGradientBoostingClassifier, which handles missing values itself)
-Each is fitted on RAW_MEASURES (recency, frequency, spend) or on all MEASURES.
-
-Profit model for one contacted customer (a "please come back" offer):
-    gain = churned * success_rate * margin * spend_365d     (value saved if the offer works)
-    profit = gain - offer_cost
-The expected-value rule contacts a customer when p_churn * success_rate * margin * spend_365d
-exceeds the offer cost.
-"""
-
 from __future__ import annotations
 
 from typing import Callable

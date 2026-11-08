@@ -1,18 +1,3 @@
-"""Load and clean the UCI Online Retail II transactions.
-
-Cleaning rules (applied in this order, row counts logged in `CleanData.report`):
-1. Drop rows with no Customer ID.
-2. Drop exact duplicate rows.
-3. Drop transactions on or after ANALYSIS_END (December 2011 is incomplete).
-4. Drop non-product stock codes (postage, fees, manual adjustments, tests, gift vouchers).
-5. Drop rows with zero or negative price.
-6. Split cancellations (invoice starts with "C") from purchases.
-
-    from src.data import load_clean
-    data = load_clean()          # cached as Parquet after the first run
-    data.purchases, data.cancellations, data.report
-"""
-
 from __future__ import annotations
 
 from dataclasses import dataclass

@@ -1,15 +1,3 @@
-"""Snapshot ("cutoff date") churn labels.
-
-For each cutoff date:
-- the population is customers with at least one purchase in the `active_days`
-  before the cutoff: [cutoff - active_days, cutoff)
-- features may use only transactions strictly before the cutoff (`history_before`)
-- churn = 1 if the customer makes no purchase in [cutoff, cutoff + horizon_days)
-
-Time conventions: cutoffs are midnight timestamps; a purchase at exactly the cutoff
-belongs to the label window, never to the history.
-"""
-
 from __future__ import annotations
 
 from typing import Iterable

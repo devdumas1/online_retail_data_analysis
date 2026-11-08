@@ -1,8 +1,3 @@
-"""Download the UCI Online Retail II dataset into data/raw/.
-
-    python -m src.download
-"""
-
 from __future__ import annotations
 
 import shutil

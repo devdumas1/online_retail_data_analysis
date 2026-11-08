@@ -1,26 +1,3 @@
-"""Customer measures ("features") at each cutoff date.
-
-Every measure uses only transactions strictly before the cutoff (`history_before`), so
-no information from the label window can leak in. One row per (customer, cutoff):
-
-- recency_days, tenure_days      days since last / first order
-- orders_{w}d, spend_{w}d        orders and spend in the last w = 30, 90, 180, 365 days
-- log_spend_365d                 log(1 + spend_365d), so a few wholesalers don't dominate
-- spend_trend                    (last 90d - previous 90d) / (last 90d + previous 90d), in [-1, 1]
-- median_gap_days, gap_std_days  usual gap between order dates and how much it varies
-- overdue_ratio                  recency_days / median_gap_days (missing for one-time buyers)
-- one_time_buyer                 1 if only one order date so far
-- avg_order_value, products_per_order   over the last 365 days
-- return_rate                    cancelled value / purchased value, last 365 days
-- autumn_buyer                   1 if they ordered in September-November within the last 365 days
-- uk                             1 if most of their purchase lines are from the United Kingdom
-
-Product-mix measures wait until product categories are decided.
-
-    from src.features import build_features
-    features = build_features(purchases, cancellations, snapshots)
-"""
-
 from __future__ import annotations
 
 import numpy as np
